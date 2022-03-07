@@ -22,11 +22,11 @@ public class ProductController {
 	
 	private final ProductRepository productRepository;
 	
-	@GetMapping()
+	@GetMapping("/allProduct")
 	@ResponseStatus(HttpStatus.OK)
-public List<Product> getProducts() {
-	return productRepository.findAll();
-}
+	public List<Product> getProducts() {
+		return productRepository.findAll();
+	}
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
 	public Product creProducts(@RequestBody Product product) {
