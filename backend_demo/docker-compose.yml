@@ -1,0 +1,37 @@
+version: '3'
+volumes:
+  db_data: {}
+services:
+  mysqldb:
+    image: 'mysql'
+    command: --lower_case_table_names=0
+    environment:
+      - MYSQL_USER=myuser
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_PASSWORD=root
+      - MYSQL_DATABASE=test
+    entrypoint:
+      sh -c "
+        echo 'CREATE DATABASE IF NOT EXISTS test2; GRANT ALL PRIVILEGES ON test2.* TO '\''myuser'\''@'\''%'\''; ' > /docker-entrypoint-initdb.d/init.sql;
+        echo 'CREATE DATABASE IF NOT EXISTS test; GRANT ALL PRIVILEGES ON test.* TO '\''myuser'\''@'\''%'\''; ' > /docker-entrypoint-initdb.d/init.sql;        echo 'CREATE DATABASE IF NOT EXISTS secondSchema; GRANT ALL PRIVILEGES ON secondSchema.* TO '\''myuser'\''@'\''%'\''; ' >> /docker-entrypoint-initdb.d/init.sql;
+         /usr/local/bin/docker-entrypoint.sh --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+      "
+    volumes:
+      - ./mysql/data:/var/lib/mysql
+      - ./mysql/init:/docker-entrypoint-initdb.d/:ro
+    ports:
+      - "3307:3306"
+  backend_demo:
+    image: backend_demo
+    ports:
+      - "8080:8080"
+    environment:
+       SPRING_DATASOURCE_URL: jdbc:mysql://mysqldb:3306/test
+       #SPRING_DATASOURCE_URL: jdbc:mysql://host.docker.internal:3306/test
+       SPRING_DATASOURCE_USERNAME: "root"
+       SPRING_DATASOURCE_PASSWORD: "root"
+    build:
+      context: "./"
+      dockerfile: "Dockerfile"
+    depends_on:
+      - mysqldb

@@ -12,6 +12,8 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,6 +25,7 @@ import com.springboot.first.app.DTO.*;
 import com.springboot.first.app.repository.RoleRepository;
 import com.springboot.first.app.repository.UserRepository;
 import com.springboot.first.app.Security.Jwt.JwtUtils;
+import com.springboot.first.app.exception.ResourceNotFoundException;
 import com.springboot.first.app.service.impl.UserDetailsImpl;
 import com.springboot.first.app.service.impl.UserDetailsServiceImpl;
 import com.springboot.first.app.model.ERole;
@@ -40,6 +43,34 @@ public class AuthController {
 	PasswordEncoder encoder;
 	@Autowired
 	JwtUtils jwtUtils;
+	
+	@GetMapping("/listname/{name}")
+	public List<User> findUsers(@PathVariable String name){
+		return userRepository.findByUsernameContaining(name);
+	}
+	
+	@GetMapping("/listname")
+	public List<User> findUsers(){
+		return userRepository.findAll();
+
+	}
+	
+	@PostMapping("/userDetail")
+	public User userDetail() {
+		
+		UserDetailsImpl userDetails = (UserDetailsImpl) SecurityContextHolder.getContext().getAuthentication()
+                .getPrincipal();	
+		User user = userRepository.findById(userDetails.getId()).orElseThrow(()->new ResourceNotFoundException("User", "id", userDetails.getId()));
+		//String headerAuth = request.getHeader("Authorization");
+//		String jwtSecrect = "";
+//		if (StringUtils.hasText(headerAuth) && headerAuth.startsWith("Bearer ")) {
+//			jwtSecrect = headerAuth.substring(7, headerAuth.length());
+//		}
+//		Jwts.parser().setSigningKey(jwtSecret).parseClaimsJws(token).getBody().getSubject();
+		
+		return user;
+	}
+	
 	@PostMapping("/signin")
 	public ResponseEntity<?> authenticateUser( @RequestBody LoginRequest loginRequest) {
 		Authentication authentication = authenticationManager.authenticate(

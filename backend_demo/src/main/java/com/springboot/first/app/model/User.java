@@ -1,8 +1,12 @@
 package com.springboot.first.app.model;
 
+import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -11,7 +15,11 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.JoinColumn;
 
 import lombok.Data;
@@ -32,6 +40,20 @@ public class User {
 	
 	
 	private String password;
+	
+	private BigDecimal balance;
+	
+	
+    private BigDecimal point;
+
+    
+    private Integer status;
+	
+    @JsonIgnoreProperties("user")
+	@OneToMany(mappedBy = "user",fetch = FetchType.EAGER,cascade = CascadeType.ALL)
+	private List<Transaction> transactions  = new ArrayList<>();
+    
+    
 	public User() {
 	}
 	public User(String username, String email, String password) {
@@ -46,4 +68,9 @@ public class User {
 				joinColumns = @JoinColumn(name = "user_id"), 
 				inverseJoinColumns = @JoinColumn(name = "role_id"))
 	private Set<Role> roles = new HashSet<>();
+	
+	
+	@JsonIgnoreProperties("user")
+	@OneToMany(mappedBy = "user",fetch = FetchType.EAGER,cascade = CascadeType.ALL)
+	private Set<Wallet> wallets = new HashSet<>();
 }
