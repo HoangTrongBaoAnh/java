@@ -1,0 +1,10 @@
+@use '../scss/' as *;
+
+.layoutx{
+    padding: 50px 10px 0px 350px;
+
+    @include tablet{
+        
+        padding:0px;
+    }
+}

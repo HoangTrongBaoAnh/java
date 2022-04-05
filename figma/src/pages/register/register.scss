@@ -1,0 +1,358 @@
+.container {
+  position: absolute;
+  left: 0%;
+  right: 0%;
+  top: 0%;
+  bottom: 0%;
+
+  background: #F7F7FC;
+  border-radius: 16px;
+
+  &__image {
+    position: absolute;
+    left: 0%;
+    right: 50.65%;
+    top: 0%;
+    bottom: 0%;
+    height: 100%;
+    background: url("https://c8.alamy.com/comp/T6N4D0/e-wallet-technology-payment-concept-with-team-people-and-gold-coin-money-pay-use-app-or-apps-model-vector-illustration-T6N4D0.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 16px 0px 0px 16px;
+  }
+
+  &_right__title {
+    position: absolute;
+    left: 59.11%;
+    right: 32.9%;
+    top: 8.68%;
+    bottom: 85.95%;
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 36px;
+    line-height: 42px;
+
+    color: #000000;
+  }
+
+  &_right__subtitle__left {
+    position: absolute;
+    left: 59.11%;
+    right: 34.11%;
+    top: 15.07%;
+    bottom: 82.25%;
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 21px;
+    /* identical to box height */
+
+
+    color: #000000;
+  }
+
+  &_right__subtitle__right {
+    position: absolute;
+    left: 66.21%;
+    right: 22.02%;
+    top: 15.07%;
+    bottom: 82.25%;
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 21px;
+    /* identical to box height */
+
+
+    color: #1D9BF0;
+  }
+
+  &_right__username {
+    position: absolute;
+    left: 59.11%;
+    right: 8.47%;
+    top: 23.24%;
+    bottom: 65.39%;
+  }
+
+  &_right__username {
+    position: absolute;
+    left: 59.11%;
+    right: 8.47%;
+    top: 23.24%;
+    bottom: 65.39%;
+  }
+
+  &_right__username_label {
+    position: absolute;
+    left: 59.11%;
+    right: 37.26%;
+    top: 23.24%;
+    bottom: 74.07%;
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 21px;
+    /* identical to box height */
+
+
+    color: #000000;
+  }
+
+  &_right__username__input {
+    padding: 5%;
+    margin-top: 8px;
+    background: #FFFFFF;
+    border: 2px solid #E5E5E5;
+    box-sizing: border-box;
+    border-radius: 8px;
+
+    height: 60px;
+    width: 402px;
+    left: 733px;
+    top: 211px;
+    border-radius: 8px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 21px;
+
+    &::placeholder {
+      position: absolute;
+      left: 5%;
+
+      top: 35%;
+
+      font-family: 'Roboto';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 21px;
+      /* identical to box height */
+
+      display: flex;
+      align-items: center;
+
+      color: #000000;
+
+      opacity: 0.4;
+    }
+
+  }
+
+  &_right__email {
+    position: absolute;
+    left: 59.11%;
+    right: 8.47%;
+    top: 38.7%;
+    bottom: 49.94%;
+
+    &__label {
+      position: absolute;
+      left: 0%;
+      right: 37.26%;
+      top: -15%;
+      bottom: 74.07%;
+
+      font-family: 'Roboto';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 21px;
+      /* identical to box height */
+
+
+      color: #000000;
+
+
+    }
+
+    &__input {
+      margin-top: 8px;
+      padding: 5%;
+      background: #FFFFFF;
+      border: 2px solid #E5E5E5;
+      box-sizing: border-box;
+      border-radius: 8px;
+      height: 60px;
+      width: 402px;
+      left: 733px;
+      top: 332px;
+      border-radius: 8px;
+      font-family: 'Roboto';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 21px;
+
+      &::placeholder {
+        position: absolute;
+        left: 5%;
+
+        top: 35%;
+
+
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 21px;
+        /* identical to box height */
+
+        display: flex;
+        align-items: center;
+
+        color: #000000;
+
+        opacity: 0.4;
+      }
+
+
+    }
+
+    &__vector {
+      position: absolute;
+
+      right: 5%;
+      top: 72%;
+
+
+      background: #4B4B4B;
+      opacity: 0.6;
+    }
+  }
+
+  &_right__password {
+
+    position: absolute;
+    left: 59.11%;
+    right: 8.47%;
+    top: 49.7%;
+    bottom: 49.94%;
+
+    &__label {
+      position: absolute;
+      left: 59.11%;
+      right: 34.44%;
+      top: 38.7%;
+      bottom: 58.62%;
+
+      font-family: 'Roboto';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 21px;
+      /* identical to box height */
+
+
+      color: #000000;
+
+
+    }
+
+    &__input {
+      margin-top: 8px;
+      padding: 5%;
+      background: #FFFFFF;
+      border: 2px solid #E5E5E5;
+      box-sizing: border-box;
+      border-radius: 8px;
+      height: 60px;
+      width: 402px;
+      left: 733px;
+      top: 332px;
+      border-radius: 8px;
+      font-family: 'Roboto';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 21px;
+
+      &::placeholder {
+        position: absolute;
+        left: 5%;
+
+        top: 35%;
+
+
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 21px;
+        /* identical to box height */
+
+        display: flex;
+        align-items: center;
+
+        color: #000000;
+
+        opacity: 0.4;
+      }
+
+
+    }
+  }
+
+  &_right__rememberme {
+    position: absolute;
+    left: 59.11%;
+    right: 27.66%;
+    top: 54.15%;
+    bottom: 43.17%;
+
+    &__text {
+
+
+      border-radius: nullpx;
+
+
+      font-family: 'Roboto';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 21px;
+      /* identical to box height */
+
+      display: flex;
+      align-items: center;
+
+      color: #000000;
+    }
+  }
+
+  &_right__button {
+    position: absolute;
+    left: 59.11%;
+    right: 8.47%;
+    top: 64.92%;
+    bottom: 26.42%;
+
+    background: #1D9BF0;
+    border-radius: 8px;
+
+    span {
+      font-family: 'Roboto';
+      font-style: normal;
+      font-weight: 500;
+      font-size: 18px;
+      line-height: 21px;
+      /* identical to box height */
+
+
+      text-transform: uppercase;
+
+      color: #FFFFFF;
+    }
+  }
+}

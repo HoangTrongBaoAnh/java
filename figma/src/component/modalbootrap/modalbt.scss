@@ -1,0 +1,59 @@
+.modal-body{
+    & .bank{
+        display: flex;
+        justify-content: space-around;
+        margin-top: 2rem;
+        & .bankbody{
+            
+            text-align: center;
+            &.active{
+                background-color: aqua;
+            }
+            &:hover{
+                cursor: pointer;
+                background-color: bisque;
+            }
+            & img{
+                
+                border-radius: 10px;
+                width: 60px;
+                height: 60px;
+            }
+
+            &__banktitle{
+                font-weight: 400;
+                font-size: 20px;
+            }
+        }
+    }
+
+    & .cardnumber{
+        margin-top: 20px;
+        padding: 10px;
+        
+        &__content{
+           
+            &__form{
+                align-items: center;
+                justify-content: center;
+                display: flex;
+            }
+        }
+        
+        &__error{
+            color: red;
+        }
+
+        & input{
+            
+           
+            margin-right: 20px;
+        }
+
+        & button{
+            
+            border-radius: 10px;
+        }
+    }
+    
+}
